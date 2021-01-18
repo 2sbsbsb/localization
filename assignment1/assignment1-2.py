@@ -2,15 +2,15 @@ from helpers import plot_poles, plot_measurement_circles, plot_robot
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.optimize import minimize
-
+import math
+from mpl_toolkits.axes_grid1 import make_axes_locatable
 
 def distance_difference_squared(guess_location, pole, pole_measurement):
     ### STUDENT CODE START
-    output = 0
-    # calc distance between guess location and pole.
-    # compare distance vs pole_measurement
+    distance_guess_location_pole = np.sqrt(pow(guess_location[0] - pole[0],2) + pow(guess_location[1] - pole[1],2))
+    output = pole_measurement - distance_guess_location_pole
     ### STUDENT CODE END
-    return output**2
+    return pow(output,2)
 
 def total_cost(guess_location, poles, pole_measurements):
     total = 0

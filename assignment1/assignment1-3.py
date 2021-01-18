@@ -7,7 +7,13 @@ from mpl_toolkits.axes_grid1 import make_axes_locatable
 
 def distance_difference_squared(guess_location, pole, pole_measurements):
     ### STUDENT CODE START
-    output = 0
+    output = np.sqrt(pow(guess_location[0] - pole[0],2) + pow(guess_location[1] - pole[1],2))
+    # compare distance vs pole_measurement
+    diff1 = pole_measurements[0] - output
+    diff2 = pole_measurements[1] - output
+    diff3 = pole_measurements[2] - output
+    # Nearest Pole
+    output = min(diff1**2, diff2**2, diff3**2)
     ### STUDENT CODE END
     return output
 
